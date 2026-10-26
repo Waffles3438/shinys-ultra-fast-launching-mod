@@ -1,0 +1,1 @@
+rootProject.name = "shinys-ultra-fast-launching-mod"

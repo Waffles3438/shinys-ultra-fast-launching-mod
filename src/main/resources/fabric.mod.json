@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "ultrafastlaunch",
+  "version": "${version}",
+  "name": "Shiny's Ultra Fast Launching Mod",
+  "description": "Caches Mixin-transformed classes so every launch after the first skips re-applying mixins.",
+  "authors": ["awruff"],
+  "license": "GPL-3.0",
+  "environment": "*",
+  "mixins": ["ultrafastlaunch.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.15.0"
+  }
+}

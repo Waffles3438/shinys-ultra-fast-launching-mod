@@ -1,0 +1,8 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "org.codeberg.awruff.ultrafastlaunch.mixin",
+  "plugin": "org.codeberg.awruff.ultrafastlaunch.UltraFastLaunchPlugin",
+  "mixins": [],
+  "priority": 1
+}
