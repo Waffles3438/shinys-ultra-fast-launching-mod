@@ -23,6 +23,14 @@ public final class UltraFastLaunchPlugin implements IMixinConfigPlugin {
         if (installed || Boolean.getBoolean("ultrafastlaunch.disable")) return;
         installed = true;
 
+        String aot;
+        try {
+            aot = AotCache.update();
+        } catch (Throwable t) {
+            aot = "aot-error";
+            Log.warn(LogCategory.GENERAL, "[UltraFastLaunch] Could not update the AOT cache options", t);
+        }
+
         if (!"false".equals(System.getProperty("ultrafastlaunch.prewarm"))) {
             try {
                 Prewarmer.start();
@@ -40,7 +48,7 @@ public final class UltraFastLaunchPlugin implements IMixinConfigPlugin {
 
             boolean bypass = Boolean.getBoolean("ultrafastlaunch.bypass");
             TransformCache cache = bypass ? null : TransformCache.open();
-            Benchmark benchmark = new Benchmark(bypass ? "bypass" : "cached");
+            Benchmark benchmark = new Benchmark((bypass ? "bypass" : "cached") + "+" + aot);
             IMixinTransformer proxy = (IMixinTransformer) Proxy.newProxyInstance(
                     IMixinTransformer.class.getClassLoader(),
                     new Class<?>[]{IMixinTransformer.class},

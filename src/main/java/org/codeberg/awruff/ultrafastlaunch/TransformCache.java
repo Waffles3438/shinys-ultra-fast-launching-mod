@@ -215,7 +215,7 @@ final class TransformCache {
         flusher.start();
     }
 
-    private static List<String> computeFingerprint() throws IOException {
+    static List<String> computeFingerprint() throws IOException {
         FabricLoader loader = FabricLoader.getInstance();
         List<String> lines = new ArrayList<>();
 
